@@ -9,4 +9,4 @@ Copyright 2010 Joachim Fornallaz. All rights reserved.
 Introduction
 ------------
 
-Core Support is a set of Objecive-C utility classes extensions for Apple's Foundation- and Cocoa frameworks.
+Core Support is a set of Objective-C utility classes extensions for Apple's Foundation- and Cocoa frameworks.
