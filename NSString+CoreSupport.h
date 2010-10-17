@@ -1,6 +1,6 @@
 //
 //  NSString+CoreSupport.h
-//  TwitterClient
+//  CoreSupport
 //
 //  Created by Joachim Fornallaz on 08.10.10.
 //  Copyright 2010 Joachim Fornallaz. All rights reserved.
