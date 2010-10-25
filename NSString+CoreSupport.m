@@ -7,6 +7,7 @@
 //
 
 #import "NSString+CoreSupport.h"
+#import "NSData+CoreSupport.h"
 
 
 @implementation NSString (CoreSupport)
@@ -19,6 +20,11 @@
 - (NSString *)stringValueWithDefault:(NSString *)defaultValue
 {
 	return [self isBlank] ? defaultValue : self;
+}
+
+- (NSString *)md5HexDigest
+{
+	return [[self dataUsingEncoding:NSUTF8StringEncoding] md5HexDigest];
 }
 
 @end

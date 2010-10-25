@@ -23,4 +23,10 @@
 */
 - (NSString *)stringValueWithDefault:(NSString *)defaultValue;
 
+/*!
+ @method     md5HexDigest
+ @abstract   Returns a the hexadecimal value of the MD5 digest of the string's UTF8 data.
+ */
+- (NSString *)md5HexDigest;
+
 @end
