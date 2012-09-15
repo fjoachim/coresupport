@@ -12,6 +12,14 @@
 
 @implementation NSString (CoreSupport)
 
++ (NSString *)stringWithUUID
+{
+	CFUUIDRef uuidRef = CFUUIDCreate(kCFAllocatorDefault);
+	NSString *uuidString = (NSString*)CFUUIDCreateString(kCFAllocatorDefault, uuidRef);
+	CFRelease(uuidRef);
+	return [uuidString autorelease];
+}
+
 - (BOOL)isBlank
 {
 	return ([[self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] length] == 0);

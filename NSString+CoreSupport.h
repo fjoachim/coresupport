@@ -12,6 +12,12 @@
 @interface NSString (CoreSupport)
 
 /*!
+ @method     stringWithUUID
+ @abstract   Returns a string representing a UUID.
+ */
++ (NSString *)stringWithUUID;
+
+/*!
  @method     isBlank
  @abstract   Returns YES if the receiver only consists of whitespaces and newlines.
  */
