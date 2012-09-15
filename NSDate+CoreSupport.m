@@ -11,6 +11,18 @@
 
 @implementation NSDate (CoreSupport)
 
++ (NSDate *)dateWithHTTPDateString:(NSString *)string
+{
+	static NSDateFormatter* formatter = nil;
+	if (formatter == nil) {
+		formatter = [[NSDateFormatter alloc] init];
+		formatter.locale = [[[NSLocale alloc] initWithLocaleIdentifier:@"en_US"] autorelease]; 
+		formatter.timeZone = [NSTimeZone timeZoneWithAbbreviation:@"GMT"];
+		formatter.dateFormat = @"EEE',' dd MMM yyyy HH':'mm':'ss ZZZ"; // "Wed, 20 Apr 2011 14:20:57 +0000"
+	}
+	return [formatter dateFromString:string];
+}
+
 - (NSDate *)atMidnight
 {
 	unsigned unitFlags = NSYearCalendarUnit | NSMonthCalendarUnit |  NSDayCalendarUnit;

@@ -11,6 +11,7 @@
 
 @interface NSDate (CoreSupport)
 
++ (NSDate *)dateWithHTTPDateString:(NSString *)string;
 - (NSDate *)atMidnight;
 - (NSDate *)endOfWeek;
 - (NSInteger)daysSince:(NSDate *)date;
