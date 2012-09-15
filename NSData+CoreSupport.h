@@ -12,5 +12,6 @@
 @interface NSData (CoreSupport)
 
 - (NSString *)md5HexDigest;
+- (NSString *)stringWithUTF8Encoding;
 
 @end

@@ -15,13 +15,19 @@
 - (NSString *)md5HexDigest
 {
 	unsigned char result[CC_MD5_DIGEST_LENGTH];
-	CC_MD5([self bytes], [self length], result);
+	CC_MD5([self bytes], (CC_LONG)[self length], result);
 	
 	NSMutableString *ret = [NSMutableString stringWithCapacity:CC_MD5_DIGEST_LENGTH * 2];
 	for (int i = 0; i<CC_MD5_DIGEST_LENGTH; i++) {
 		[ret appendFormat:@"%02x", result[i]];
 	}
 	return ret;	
+}
+
+- (NSString *)stringWithUTF8Encoding
+{
+	NSString *string = [[NSString alloc] initWithData:self encoding:NSUTF8StringEncoding];
+	return [string autorelease];
 }
 
 @end
