@@ -12,5 +12,6 @@
 @interface NSURL (CoreSupport)
 
 - (NSString *)md5HexDigest;
+- (NSURL *)URLByAppendingQueryFromDictionary:(NSDictionary *)queryParams;
 
 @end
