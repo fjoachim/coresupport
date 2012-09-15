@@ -35,4 +35,11 @@
 	return [[self dataUsingEncoding:NSUTF8StringEncoding] md5HexDigest];
 }
 
+- (NSString *)stringWithURLPercentEncoding
+{
+	CFStringRef reserved = (CFStringRef)@"!*'();:@&=+$,/?%#[]";
+	NSString *escaped = (NSString *)CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault, (CFStringRef)self, NULL, reserved, kCFStringEncodingUTF8);
+	return [escaped autorelease];
+}
+
 @end

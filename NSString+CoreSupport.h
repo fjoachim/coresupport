@@ -25,14 +25,20 @@
 
 /*!
  @method     stringValueWithDefault
- @abstract   Returns a the receicer itself if it is not blank, otherwise a default string.
+ @abstract   Returns the receiver itself if it is not blank, otherwise a default string.
 */
 - (NSString *)stringValueWithDefault:(NSString *)defaultValue;
 
 /*!
  @method     md5HexDigest
- @abstract   Returns a the hexadecimal value of the MD5 digest of the string's UTF8 data.
+ @abstract   Returns the hexadecimal value of the MD5 digest of the string's UTF8 data.
  */
 - (NSString *)md5HexDigest;
+
+/*!
+ @method     stringByEscapingForURLArgument
+ @abstract   Returns a string suitable to be used in an URL.
+ */
+- (NSString *)stringWithURLPercentEncoding;
 
 @end
