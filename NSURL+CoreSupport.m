@@ -29,7 +29,7 @@
 	NSString *queryJoin = @"";
 	if ([self query] == nil) {
 		queryJoin = @"?";
-	} else if ([[self query] length] > 0) {
+	} else if ([[self query] length] > 0 && [appendedQueryPart length] > 0) {
 		queryJoin = @"&";
 	}
 	
