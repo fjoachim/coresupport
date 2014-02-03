@@ -18,6 +18,18 @@
 + (NSString *)stringWithUUID;
 
 /*!
+ @method     queryStringFromDictionary
+ @abstract   Returns a query string constructed from a dictionary.
+ */
++ (NSString *)queryStringFromDictionary:(NSDictionary *)dictionary;
+
+/*!
+ @method     queryDictionary
+ @abstract   Returns a dictionary if the string is a valid URL query
+ */
+- (NSDictionary *)queryDictionary;
+
+/*!
  @method     isBlank
  @abstract   Returns YES if the receiver only consists of whitespaces and newlines.
  */

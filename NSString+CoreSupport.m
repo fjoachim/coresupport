@@ -20,6 +20,32 @@
 	return [uuidString autorelease];
 }
 
++ (NSString *)queryStringFromDictionary:(NSDictionary *)dictionary
+{
+	NSMutableArray *assignments = [NSMutableArray arrayWithCapacity:[dictionary count]];
+	for (NSString *key in dictionary) {
+		NSString *value = [[dictionary objectForKey:key] description];
+		if ([value isKindOfClass:[NSString class]]) {
+			[assignments addObject:[NSString stringWithFormat:@"%@=%@", [key stringWithURLPercentEncoding], [value stringWithURLPercentEncoding]]];
+		}
+	}
+	return [assignments componentsJoinedByString:@"&"];
+}
+
+- (NSDictionary *)queryDictionary
+{
+	NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
+	NSArray *fragmentAssignments = [self componentsSeparatedByString:@"&"];
+	for (NSString *assignment in fragmentAssignments) {
+		NSArray *pair = [assignment componentsSeparatedByString:@"="];
+		if ([pair count] == 2 && [[pair firstObject] length] && [[pair lastObject] length]) {
+			NSString *value = [[pair lastObject] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+			[dictionary setObject:value forKey:[pair firstObject]];
+		}
+	}
+	return dictionary;
+}
+
 - (BOOL)isBlank
 {
 	return ([[self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] length] == 0);

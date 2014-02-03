@@ -19,12 +19,7 @@
 
 - (NSURL *)URLByAppendingQueryFromDictionary:(NSDictionary *)queryParams
 {
-	NSMutableArray *assignments = [NSMutableArray arrayWithCapacity:[queryParams count]];
-	for (NSString *key in queryParams) {
-		NSString *value = [[queryParams objectForKey:key] description];
-		[assignments addObject:[NSString stringWithFormat:@"%@=%@", [key stringWithURLPercentEncoding], [value stringWithURLPercentEncoding]]];
-	}
-	NSString *appendedQueryPart = [assignments componentsJoinedByString:@"&"];
+	NSString *appendedQueryPart = [NSString queryStringFromDictionary:queryParams];
 	
 	NSString *queryJoin = @"";
 	if ([self query] == nil) {
