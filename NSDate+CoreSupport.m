@@ -25,7 +25,7 @@
 
 - (NSDate *)atMidnight
 {
-	unsigned unitFlags = NSYearCalendarUnit | NSMonthCalendarUnit |  NSDayCalendarUnit;
+	unsigned unitFlags = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay;
 	NSCalendar *calendar = [NSCalendar currentCalendar];
 	NSDateComponents *components = [calendar components:unitFlags fromDate:self];
 	return [calendar dateFromComponents:components];
@@ -33,7 +33,7 @@
 
 - (NSDate *)endOfWeek
 {
-	unsigned unitFlags = NSYearCalendarUnit | NSMonthCalendarUnit |  NSDayCalendarUnit | NSWeekdayCalendarUnit;
+	unsigned unitFlags = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitWeekday;
 	NSCalendar *calendar = [NSCalendar currentCalendar];
 	NSDateComponents *components = [calendar components:unitFlags fromDate:self];
 	NSInteger weekday = [components weekday];
@@ -55,7 +55,7 @@
 
 - (NSInteger)weekdayForCurrentCalendar
 {
-	unsigned unitFlags = NSWeekdayCalendarUnit;
+	unsigned unitFlags = NSCalendarUnitWeekday;
 	NSCalendar *calendar = [NSCalendar currentCalendar];
 	NSDateComponents *components = [calendar components:unitFlags fromDate:self];
 	return [components weekday];
